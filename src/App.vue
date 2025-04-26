@@ -43,7 +43,7 @@ const getWeather = async () => {
       data.value = await response.json()
     }
   } catch (error: any) {
-    console.log('errorMessage.value', errorMessage.value)
+    console.log('errorMessage.value', errorMessage)
     errorMessage.value = error.message
   }
 }
