@@ -1,6 +1,6 @@
 # Weather on Vue
 
-**A simple weather application the current weather in **Ukraine**!**
+**A simple weather application the current weather**
 
 🌐 [Try the app](https://weather-on-vue.vercel.app/)
 
@@ -10,5 +10,4 @@
 
 ## Technologies
 - Vue 3
-- Axios (for API requests)
 - Vercel (for deployment)
