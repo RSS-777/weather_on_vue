@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import axios from 'axios';
-const VITE_WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 interface IWeatherData {
   main: {
@@ -40,15 +38,10 @@ const getWeather = async () => {
   try {
     errorMessage.value = null
 
-    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, {
-      params: {
-        q: city.value,
-        units: 'metric',
-        lang: 'uk',
-        appid: VITE_WEATHER_API_KEY
-      }
-    });
-    data.value = response.data;
+    const response = await fetch(`/api/getData?city=${city.value}`);
+    if(response.ok) {
+      data.value = await response.json()
+    }
   } catch (error: any) {
     errorMessage.value = error.message
   }
