@@ -34,17 +34,20 @@ const data = ref<IWeatherData | null>(null);
 const errorMessage = ref<string | null>(null)
 
 const getWeather = async () => {
+  errorMessage.value = null
+  data.value = null
+
   if (!city.value) return
 
-  try {
-    errorMessage.value = null
-    data.value = null
+  if (!/^[a-zA-Zа-яА-ЯёЁіІїЇєЄ\s]+$/u.test(city.value)) {
+    errorMessage.value = 'Назва населеного пункту може містити лише літери та пробіли.';
+    return;
+  }
 
+  try {
     const response = await fetch(`/api/getData?city=${city.value}`)
     const result = await response.json();
-    
-    console.log('response App', response)
-    console.log('result', result)
+
     if (response.ok) {
       if (result && result.sys && result.weather) {
         data.value = result;
@@ -55,7 +58,6 @@ const getWeather = async () => {
       errorMessage.value = result.message || 'Сталася помилка при отриманні даних.';
     }
   } catch (error: any) {
-    console.log('errorMessage.value', errorMessage)
     errorMessage.value = error.message
   }
 }
@@ -67,7 +69,7 @@ const getWeather = async () => {
       <h1>Додаток погоди</h1>
       <p>Дізнайтесь погоду у вашому населеному пункті.</p>
       <div class="block-input">
-        <input type="text" placeholder="Введіть місто" aria-label="Назва міста" v-model="city" />
+        <input type="text" placeholder="Введіть населений пункт" aria-label="Назва населеного пункту" v-model="city" />
         <button type="button" :disabled="city === ''" @click="getWeather">Отримати погоду</button>
       </div>
       <div class="weather" v-if="data && !errorMessage">
@@ -88,15 +90,15 @@ const getWeather = async () => {
           <span class="n">Пн</span>
           <span class="e">Сх</span>
           <span class="w">Зх</span>
-          <span class="speed">S: {{ data.wind.speed.toFixed(1) + ' м/с' }}</span>
-          <span class="gust">G: {{ data.wind.gust.toFixed(1) + ' м/с' }}</span>
+          <span class="speed">S: {{data.wind.speed ? (data.wind.speed.toFixed(1) + ' м/с') : 'N/A' }}</span>
+          <span class="gust">G: {{  data.wind.gust ? (data.wind.gust.toFixed(1) + ' м/с') : 'N/A' }}</span>
         </div>
         <div class="block-details">
           <span class="block-details__item1">Вологість:<br /> {{ data.main.humidity }}</span>
           <span class="block-details__item2">Тиск: <br /> {{ data.main.pressure + ' hPa' }}</span>
           <span class="block-details__item3">Відчув. : {{ data.main.feels_like }}</span>
           <span class="block-details__item4">Видимість: {{ data.visibility + ' m' }}</span>
-          <span class="block-details__item-center">{{ data.main.temp.toFixed(1) + '&deg;C' }}</span>
+          <span class="block-details__item-center">{{ data.main.temp ? (data.main.temp.toFixed(1) + '&deg;C') : 'N/A' }}</span>
         </div>
       </div>
       <div class="block-error">
