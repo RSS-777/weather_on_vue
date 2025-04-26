@@ -35,13 +35,24 @@ const errorMessage = ref<string | null>(null)
 
 const getWeather = async () => {
   if (!city.value) return
+
   try {
     errorMessage.value = null
+    data.value = null
 
     const response = await fetch(`/api/getData?city=${city.value}`)
+    const result = await response.json();
+    
     console.log('response App', response)
-    if(response.ok) {
-      data.value = await response.json()
+    console.log('result', result)
+    if (response.ok) {
+      if (result && result.sys && result.weather) {
+        data.value = result;
+      } else {
+        errorMessage.value = 'Не вдалося знайти дані для вказаного міста.';
+      }
+    } else {
+      errorMessage.value = result.message || 'Сталася помилка при отриманні даних.';
     }
   } catch (error: any) {
     console.log('errorMessage.value', errorMessage)
