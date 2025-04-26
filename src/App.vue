@@ -186,19 +186,18 @@ const getWeather = async () => {
   grid-template: repeat(2, 1fr)/ repeat(2, 1fr);
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 200px;
-  border: 2px solid rgb(8, 122, 203);
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 0 5px 0 rgb(254, 254, 136);
+  box-shadow: 0 0 8px 0 rgb(243, 241, 142);
 }
 
 .block-info .block-info__item1 {
   padding: 20px 10px 0 20px;
-  width: 100%;
-  height: 100%;
+  width: 105px;
+  height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -208,8 +207,8 @@ const getWeather = async () => {
 
 .block-info .block-info__item2 {
   padding: 20px 20px 0 10px;
-  width: 100%;
-  height: 100%;
+  width: 105px;
+  height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -218,8 +217,8 @@ const getWeather = async () => {
 
 .block-info .block-info__item3 {
   padding: 0 10px 20px 20px;
-  width: 100%;
-  height: 100%;
+  width: 105px;
+  height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -228,8 +227,8 @@ const getWeather = async () => {
 
 .block-info .block-info__item4 {
   padding: 0 20px 20px 10px;
-  width: 100%;
-  height: 100%;
+  width: 105px;
+  height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -257,19 +256,18 @@ const getWeather = async () => {
   grid-template: repeat(2, 1fr)/ repeat(2, 1fr);
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 200px;
-  border: 2px solid rgb(8, 122, 203);
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 0 5px 0 rgb(254, 254, 136);
+  box-shadow: 0 0 8px 0 rgb(243, 241, 142);
 }
 
 .block-details .block-details__item1 {
   padding: 20px 10px 0 20px;
-  width: 100%;
-  height: 100%;
+  width: 105px;
+  height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -279,8 +277,8 @@ const getWeather = async () => {
 
 .block-details .block-details__item2 {
   padding: 20px 20px 0 10px;
-  width: 100%;
-  height: 100%;
+  width: 105px;
+  height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -289,8 +287,8 @@ const getWeather = async () => {
 
 .block-details .block-details__item3 {
   padding: 0 10px 20px 20px;
-  width: 100%;
-  height: 100%;
+  width: 105px;
+  height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -299,8 +297,8 @@ const getWeather = async () => {
 
 .block-details .block-details__item4 {
   padding: 0 20px 20px 10px;
-  width: 100%;
-  height: 100%;
+  width: 105px;
+  height: 105px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -326,9 +324,8 @@ const getWeather = async () => {
   position: relative;
   width: 70px;
   height: 70px;
-  border: 2px solid rgb(8, 122, 203);
   border-radius: 50%;
-  box-shadow: 0 0 5px 0 rgb(254, 254, 136);
+  box-shadow: 0 0 8px 0 rgb(243, 241, 142);
 }
 
 .block-wind .arrow {
@@ -409,7 +406,7 @@ const getWeather = async () => {
   color: #D7BD2C;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 580px) {
   .weather {
     gap: 30px;
     flex-direction: column;
