@@ -38,7 +38,8 @@ const getWeather = async () => {
   try {
     errorMessage.value = null
 
-    const response = await fetch(`/api/getData?city=${city.value}`);
+    const response = await fetch(`/api/getData?city=${city.value}`)
+    console.log('response App', response)
     if(response.ok) {
       data.value = await response.json()
     }
